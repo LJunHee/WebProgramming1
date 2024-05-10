@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>연습문제 21번</title>
+        <meta charset="utf-8"/>
+    </head>
+    <body>
+        <script type="text/javascript">
+            var days = ['일', '월', '화', '수', '목', '금', '토'];
+            var today = new Date();
+            var y = today.getFullYear();
+            var m = today.getMonth() + 1;
+            var d = today.getDate();
+            var day = days[today.getDay()];
+
+            document.write("오늘의 날짜: " + y + "년 " + m + "월 " + d + "일 " + day + "요일");
+        </script>
+    </body>
+</html>

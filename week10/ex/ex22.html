@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>연습문제 22번</title>
+        <meta charset="utf-8"/>
+    </head>
+    <body>
+        <script type="text/javascript">
+            var timestamp = new Date().getTime();
+            var date = new Date(timestamp);
+
+            var year = date.getFullYear();
+            var month = date.getMonth() + 1;
+            var day = date.getDate();
+            var hours = date.getHours();
+            var minutes = date.getMinutes();
+            var seconds = date.getSeconds();
+
+            document.write("오늘의 날짜와 시간: " + year + "년 " + month + "월 " + day + "일 " + hours + "시 " + minutes + "분 " + seconds + "초");
+        </script>
+    </body>
+</html>
