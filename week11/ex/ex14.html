@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>연습문제 14번</title>
+    <meta charset="utf-8"/>
+    <script type="text/javascript">
+            function button_append() { 
+                btn = document.createElement("button");
+                btn.innerText =  document.getElementById("button_name").value;
+                document.getElementById("button_area").appendChild(btn);
+            }
+    </script>
+</head>
+<body>
+    <input id="button_name" type="text"><button onclick="button_append();"> 버튼 생성 </button>
+    <div id="button_area" style="border: solid; height: 300px;"></div>
+</body>
+</html>
+
