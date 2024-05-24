@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>연습문제 20번</title>
+</head>
+<body>
+
+<button id="b1">innerHTML</button>
+<button id="b2">innerText</button>
+<br/>
+<div id="text"></div>
+
+<script type="text/javascript">
+    document.getElementById("b1").onmouseover = mouseover_innerHTML;
+    document.getElementById("b2").onmouseover = mouseover_innerText;
+
+    function mouseover_innerHTML() {
+        document.getElementById("text").innerHTML = "<h1>연습문제 20번입니다.</h1>";
+    }
+
+    function mouseover_innerText() {
+        document.getElementById("text").innerText = "연습문제 20번입니다.";
+    }
+</script>
+ 
+</body>
+</html>

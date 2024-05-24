@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>보이기 스타일 속성 변경하기 예제</title>
+    <style>
+        #outerBox {
+            background: blue;
+            width: 550px;
+            height: 300px;
+        }
+
+        #innerBox {
+            background: yellow;
+            width: 450px;
+            height: 200px;
+            position: absolute;
+            left: 50px;
+            top: 50px;
+        }
+
+        .img-container {
+            position: absolute;
+            visibility: visible;
+        }
+    </style>
+</head>
+<body>
+    <div id="outerBox"></div>
+
+    <div id="innerBox">
+        <div class="img-container" style="left: 50px; top: 25px;">
+            <img id="img1" src="image1.png" width="100px"/>
+        </div>
+        <div class="img-container" style="left: 175px; top: 25px;">
+            <img id="img2" src="image2.png" width="100px"/>
+        </div>
+        <div class="img-container" style="left: 300px; top: 25px;">
+            <img id="img3" src="image3.png" width="100px"/>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        function toggleVisibility(id) {
+            var img = document.getElementById(id);
+            if (img.style.visibility == "visible") {
+                img.style.visibility = "hidden";
+            } else {
+                img.style.visibility = "visible";
+            }
+        }
+    </script>
+
+    <p>Toggle Visibility:</p>
+    <button onclick="toggleVisibility('img1');">Image 1</button>
+    <button onclick="toggleVisibility('img2');">Image 2</button>
+    <button onclick="toggleVisibility('img3');">Image 3</button>
+</body>
+</html>
