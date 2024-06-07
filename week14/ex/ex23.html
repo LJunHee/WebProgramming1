@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>웹 사이트 방문 히스토리</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .history-list {
+            margin-top: 20px;
+        }
+        .history-item {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>웹 사이트 방문 히스토리</h1>
+    <button onclick="startLogging()">시작</button>
+    <button onclick="clearHistory()">삭제</button>
+
+    <div class="history-list" id="historyList"></div>
+
+    <script>
+        let logging = false;
+
+        function startLogging() {
+            if (!logging) {
+                logging = true;
+                alert("방문 기록 시작");
+            }
+        }
+
+        function stopLogging() {
+            if (logging) {
+                logging = false;
+                alert("방문 기록 종료");
+            }
+        }
+
+        function clearHistory() {
+            localStorage.removeItem('visitHistory');
+            alert("방문 기록 삭제");
+            displayHistory();
+        }
+
+        function displayHistory() {
+            const historyList = document.getElementById('historyList');
+            historyList.innerHTML = '';
+
+            const visitHistory = localStorage.getItem('visitHistory');
+            if (visitHistory) {
+                const entries = visitHistory.split('|');
+                entries.forEach((entry, index) => {
+                    const listItem = document.createElement('div');
+                    listItem.className = 'history-item';
+                    listItem.textContent = `${index + 1}. ${entry}`;
+                    historyList.appendChild(listItem);
+                });
+            }
+        }
+
+        function saveVisit() {
+            let visitHistory = localStorage.getItem('visitHistory') || '';
+            const currentDateTime = new Date().toLocaleString();
+            visitHistory += (visitHistory ? '|' : '') + currentDateTime;
+            localStorage.setItem('visitHistory', visitHistory);
+            displayHistory();
+        }
+
+        window.onload = function() {
+            saveVisit();
+            displayHistory();
+        }
+    </script>
+</body>
+</html>
